@@ -1,0 +1,7 @@
+
+init:
+$ go mod init api-rest-go
+
+gorilla:
+$ go get -u github.com/gorilla/mux
+
