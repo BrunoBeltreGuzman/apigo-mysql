@@ -1,0 +1,17 @@
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ api-go /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+USE api-go;
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT 'primary key',
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `createAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'create time',
+  `updateAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'update time',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
