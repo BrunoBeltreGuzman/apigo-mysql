@@ -15,7 +15,7 @@ Database structure and tables in `sql` folder
 **Install Packages**
 
 ```Console
-go run app.go
+go install
 ```
 
 **Run**
