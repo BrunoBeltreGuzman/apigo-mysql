@@ -1,9 +1,8 @@
 package main
 
 import (
-	"gomysql/server"
-
 	_ "github.com/go-sql-driver/mysql"
+	"gomysql/server"
 )
 
 func main() {
