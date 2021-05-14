@@ -2,6 +2,7 @@ package routers
 
 import (
 	"gomysql/api"
+	"gomysql/middlewares"
 
 	"github.com/gorilla/mux"
 )
@@ -9,6 +10,9 @@ import (
 func GetRouters() (r *mux.Router) {
 
 	routers := mux.NewRouter()
+
+	//middlewares
+	routers.Use(middlewares.Log)
 
 	//index
 	routers.HandleFunc("/", api.HomeHandler).Methods("GET")
@@ -19,6 +23,17 @@ func GetRouters() (r *mux.Router) {
 	routers.HandleFunc("/users", api.InsertUsers).Methods("POST")
 	routers.HandleFunc("/users/{id}", api.UpdateUsers).Methods("PUT")
 	routers.HandleFunc("/users/{id}", api.DeleteUsers).Methods("DELETE")
+
+	//Roles
+	routers.HandleFunc("/roles", api.FindAllRoles).Methods("GET")
+	routers.HandleFunc("/roles/{id}", api.FindByIdRoles).Methods("GET")
+	routers.HandleFunc("/roles", api.InsertRoles).Methods("POST")
+	routers.HandleFunc("/roles/{id}", api.UpdateRoles).Methods("PUT")
+	routers.HandleFunc("/roles/{id}", api.DeleteRoles).Methods("DELETE")
+
+	//Sign
+	routers.HandleFunc("/signin", api.SignIn).Methods("POST")
+	routers.HandleFunc("/signup", api.SignUp).Methods("POST")
 
 	//Querys
 	routers.HandleFunc("/querys", api.Select).Methods("GET")

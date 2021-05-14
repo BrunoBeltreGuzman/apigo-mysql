@@ -3,22 +3,20 @@ package database
 import (
 	"database/sql"
 	"fmt"
+	"gomysql/config"
 	"log"
 )
 
 func GetConnection() (db *sql.DB) {
 
-	const driver string = "mysql"
-	const database string = "api-go"
-	const user string = "bobo"
-	const password string = "123"
+	const conn string = config.USER + ":" + config.PASSWORD + config.HOST + "/" + config.DATABASE
 
-	db, err := sql.Open(driver, user+":"+password+"@tcp(127.0.0.1:3306)/"+database)
+	db, err := sql.Open(config.DRIVER, conn)
 
 	if err != nil {
 		log.Fatal(err)
 	} else {
-		fmt.Println("Database `" + database + "` connection successfull")
+		fmt.Println("Database `" + config.DATABASE + "` connection successfully")
 	}
 	return db
 }

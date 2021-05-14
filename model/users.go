@@ -1,31 +1,99 @@
 package model
 
 import (
+	"gomysql/database"
 	"gomysql/types"
+	"log"
 )
 
-func GetAllUsers() (AllUsers []types.Users) {
-	AllUsers = []types.Users{
-		{Id: 1, Name: "Bobo", Email: "bobo@gmail.com", Password: "123", Created_at: "51/564/54", Updated_at: "52/654/254"},
-		{Id: 2, Name: "Bobo", Email: "bobo@gmail.com", Password: "123", Created_at: "51/564/54", Updated_at: "52/654/254"}, {Id: 3, Name: "Bobo", Email: "bobo@gmail.com", Password: "123", Created_at: "51/564/54", Updated_at: "52/654/254"},
+func FindUsersByName(name string) []types.Users {
+	connection := database.GetConnection()
+	const sql = "SELECT * FROM users WHERE name=?"
+	results, error := connection.Query(sql, name)
+	if error != nil {
+		log.Fatal(error)
+		return []types.Users{}
 	}
-	return AllUsers
+
+	var user = types.Users{}
+	var users = []types.Users{}
+	for results.Next() {
+		err := results.Scan(&user.Id, &user.Name, &user.Email, &user.Password, &user.Role, &user.Created_at, &user.Updated_at)
+		if err != nil {
+			log.Fatal(err)
+		}
+		users = append(users, user)
+	}
+
+	defer results.Close()
+	return users
 }
 
-func GetByIdUsers(id int) (AllUsers []types.Users) {
-	AllUsers = []types.Users{
-		{Id: 1, Name: "Bobo", Email: "bobo@gmail.com", Password: "123", Created_at: "51/564/54", Updated_at: "52/654/254"},
-		{Id: 2, Name: "Bobo", Email: "bobo@gmail.com", Password: "123", Created_at: "51/564/54", Updated_at: "52/654/254"}, {Id: 3, Name: "Bobo", Email: "bobo@gmail.com", Password: "123", Created_at: "51/564/54", Updated_at: "52/654/254"},
+func FindUsersByEmail(email string) []types.Users {
+	connection := database.GetConnection()
+	const sql = "SELECT * FROM users WHERE email=?"
+	results, error := connection.Query(sql, email)
+	if error != nil {
+		log.Fatal(error)
+		return []types.Users{}
 	}
 
-	for _, user := range AllUsers {
-		if user.Id == id {
-			arrUser := []types.Users{
-				user,
-			}
-			return arrUser
+	var user = types.Users{}
+	var users = []types.Users{}
+	for results.Next() {
+		err := results.Scan(&user.Id, &user.Name, &user.Email, &user.Password, &user.Role, &user.Created_at, &user.Updated_at)
+		if err != nil {
+			log.Fatal(err)
 		}
+		users = append(users, user)
 	}
 
-	return nil
+	defer results.Close()
+	return users
+}
+
+func FindUsersByPassword(password string) []types.Users {
+	connection := database.GetConnection()
+	const sql = "SELECT * FROM users WHERE password=?"
+	results, error := connection.Query(sql, password)
+	if error != nil {
+		log.Fatal(error)
+		return []types.Users{}
+	}
+
+	var user = types.Users{}
+	var users = []types.Users{}
+	for results.Next() {
+		err := results.Scan(&user.Id, &user.Name, &user.Email, &user.Password, &user.Role, &user.Created_at, &user.Updated_at)
+		if err != nil {
+			log.Fatal(err)
+		}
+		users = append(users, user)
+	}
+
+	defer results.Close()
+	return users
+}
+
+func SignInUsers(name string, password string) []types.Users {
+	connection := database.GetConnection()
+	const sql = "SELECT * FROM users WHERE name=? AND password=?"
+	results, error := connection.Query(sql, name, password)
+	if error != nil {
+		log.Fatal(error)
+		return []types.Users{}
+	}
+
+	var user = types.Users{}
+	var users = []types.Users{}
+	for results.Next() {
+		err := results.Scan(&user.Id, &user.Name, &user.Email, &user.Password, &user.Role, &user.Created_at, &user.Updated_at)
+		if err != nil {
+			log.Fatal(err)
+		}
+		users = append(users, user)
+	}
+
+	defer results.Close()
+	return users
 }
