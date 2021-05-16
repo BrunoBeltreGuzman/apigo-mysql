@@ -2,6 +2,7 @@
 init:
 $ go mod init api-rest-go
 
-gorilla:
-$ go get -u github.com/gorilla/mux
-
+Install:
+$ go get -u github.com/dgrijalva/jwt-go v3.2.0+incompatible
+$ go get -u github.com/go-sql-driver/mysql v1.6.0
+$ go get -u github.com/gorilla/mux v1.8.0

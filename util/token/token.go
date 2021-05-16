@@ -11,22 +11,16 @@ import (
 
 func DecodeToken(token string) *types.Data {
 	//Valid Token
-	validToken, err := jwt.ParseWithClaims(
+	validToken, _ := jwt.ParseWithClaims(
 		token,
 		&types.Data{},
 		func(validToken *jwt.Token) (interface{}, error) {
 			return []byte(config.KEY), nil
 		},
 	)
-	data, ok := validToken.Claims.(*types.Data)
-	if !ok {
-		log.Fatal(err)
-	}
 
-	//time
-	//fmt.Println(data.ExpiresAt)
+	data, _ := validToken.Claims.(*types.Data)
 
-	//get user
 	return data
 }
 

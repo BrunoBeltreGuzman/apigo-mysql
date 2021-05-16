@@ -100,32 +100,8 @@ func SignUp(response http.ResponseWriter, request *http.Request) {
 	result := map[string]string{
 		"code":     "200",
 		"message":  "The request has succeeded.",
-		"response": "Users Insert successfully",
+		"response": "Signup successfully",
 	}
 	response.WriteHeader(http.StatusOK)
 	json.NewEncoder(response).Encode(result)
 }
-
-/*
-func test() {
-	role := types.Roles{}
-	options := types.Data{
-		Id:        1,
-		Name:      "Bobo",
-		Email:     "Bobo",
-		Password:  "Bobo",
-		Role:      role,
-		CreatedAt: "Bobo",
-		UpdatedAt: "Bobo",
-		StandardClaims: jwt.StandardClaims{
-			ExpiresAt: 15000,
-			Issuer:    "NameApp",
-		},
-	}
-	var myToken string = token.GetToken(options)
-	fmt.Println(myToken)
-	var data *types.Data = token.DecodeToken(myToken)
-	name := data.Name
-	fmt.Println(name)
-}
-*/

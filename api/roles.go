@@ -64,7 +64,7 @@ func FindByIdRoles(response http.ResponseWriter, request *http.Request) {
 	var role = types.Roles{}
 	var roles = []types.Roles{}
 	for results.Next() {
-		err := results.Scan(&role.Id, &role.Role, role.Role, &role.Created_at, &role.Updated_at)
+		err := results.Scan(&role.Id, &role.Role, &role.Created_at, &role.Updated_at)
 		if err != nil {
 			log.Fatal(err)
 		}

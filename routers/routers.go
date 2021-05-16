@@ -16,6 +16,7 @@ func GetRouters() (r *mux.Router) {
 
 	//index
 	routers.HandleFunc("/", api.HomeHandler).Methods("GET")
+	routers.HandleFunc("/home", api.Home).Methods("GET")
 
 	//Users
 	routers.HandleFunc("/users", api.FindAllUsers).Methods("GET")
@@ -34,15 +35,6 @@ func GetRouters() (r *mux.Router) {
 	//Sign
 	routers.HandleFunc("/signin", api.SignIn).Methods("POST")
 	routers.HandleFunc("/signup", api.SignUp).Methods("POST")
-
-	//Querys
-	routers.HandleFunc("/querys", api.Select).Methods("GET")
-	routers.HandleFunc("/querys", api.Insert).Methods("POST")
-	routers.HandleFunc("/querys", api.Update).Methods("PUT")
-	routers.HandleFunc("/querys", api.Delete).Methods("DELETE")
-
-	//test
-	routers.HandleFunc("/test/db", api.TestDataBase).Methods("GET")
 
 	return routers
 }
