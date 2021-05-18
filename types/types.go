@@ -21,6 +21,17 @@ type Roles struct {
 	Updated_at string `json:"updated_at"`
 }
 
+type Sessions struct {
+	Id             int    `json:"id"`
+	User           int    `json:"user"`
+	Token          string `json:"token"`
+	Ip             string `json:"ip"`
+	CreatedAt      string `json:"createdAt"`
+	ExpiredAt      string `json:"expiredAt"`
+	Created_timeAt string `json:"created_timeAt"`
+	Updated_timeAt string `json:"updated_timeAt"`
+}
+
 //data
 type Data struct {
 	User Users `json:"user"`

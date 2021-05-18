@@ -12,14 +12,6 @@ import (
 )
 
 func FindAllRoles(response http.ResponseWriter, request *http.Request) {
-	/*
-		authToken := request.Header.Get("Authorization")
-
-		boo := token.DecodeToken(authToken)
-		response.WriteHeader(http.StatusOK)
-		json.NewEncoder(response).Encode(boo)
-
-	*/
 	connection := database.GetConnection()
 	const sql = "SELECT * FROM roles"
 	results, error := connection.Query(sql)

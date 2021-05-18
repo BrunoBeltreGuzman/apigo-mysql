@@ -1,0 +1,36 @@
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ date /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+USE date;
+
+DROP TABLE IF EXISTS mydata;
+CREATE TABLE `mydata` (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT 'primary key',
+  `date1` date DEFAULT NULL,
+  `date2` date DEFAULT NULL,
+  `date3` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS mytime;
+CREATE TABLE `mytime` (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT 'primary key',
+  `time1` time DEFAULT NULL,
+  `time2` time DEFAULT NULL,
+  `time3` time DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS sessions;
+CREATE TABLE `sessions` (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT 'primary key',
+  `user` int DEFAULT NULL,
+  `token` varchar(6000) DEFAULT NULL,
+  `timeAt` time DEFAULT NULL,
+  `timeEx` time DEFAULT NULL,
+  `dateAt` date DEFAULT NULL,
+  `dateEx` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
