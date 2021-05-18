@@ -3,7 +3,7 @@ package api
 import (
 	"encoding/json"
 	"fmt"
-	"gomysql/util/valid"
+	"gomysql/src/util/valid"
 	"net/http"
 )
 

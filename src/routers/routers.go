@@ -1,8 +1,8 @@
 package routers
 
 import (
-	"gomysql/api"
-	"gomysql/middlewares"
+	"gomysql/src/api"
+	"gomysql/src/middlewares"
 
 	"github.com/gorilla/mux"
 )

@@ -1,7 +1,7 @@
 package valid
 
 import (
-	"gomysql/util/token"
+	"gomysql/src/util/token"
 )
 
 func ValidToken(authToken string) bool {

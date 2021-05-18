@@ -3,7 +3,7 @@ package database
 import (
 	"database/sql"
 	"fmt"
-	"gomysql/config"
+	"gomysql/src/config"
 	"log"
 )
 

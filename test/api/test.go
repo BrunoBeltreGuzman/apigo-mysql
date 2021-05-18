@@ -2,7 +2,7 @@ package api
 
 import (
 	"encoding/json"
-	"gomysql/database"
+	"gomysql/src/database"
 	"net/http"
 )
 

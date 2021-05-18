@@ -36,4 +36,4 @@ go run app.go
 
 `DELETE` /users/{id}
 
-_And othes test_
+_And othes endpoints_

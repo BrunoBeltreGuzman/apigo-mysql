@@ -1,8 +1,8 @@
 package model
 
 import (
-	"gomysql/database"
-	"gomysql/types"
+	"gomysql/src/database"
+	"gomysql/src/types"
 	"log"
 )
 

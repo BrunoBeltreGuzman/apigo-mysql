@@ -2,10 +2,10 @@ package api
 
 import (
 	"encoding/json"
-	"gomysql/database"
-	"gomysql/model"
-	"gomysql/types"
-	"gomysql/util/token"
+	"gomysql/src/database"
+	"gomysql/src/model"
+	"gomysql/src/types"
+	"gomysql/src/util/token"
 	"log"
 	"net/http"
 

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"gomysql/server"
+	"gomysql/src/server"
 
 	_ "github.com/go-sql-driver/mysql"
 )

@@ -1,8 +1,8 @@
 package token
 
 import (
-	"gomysql/config"
-	"gomysql/types"
+	"gomysql/src/config"
+	"gomysql/src/types"
 
 	"log"
 

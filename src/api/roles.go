@@ -2,8 +2,8 @@ package api
 
 import (
 	"encoding/json"
-	"gomysql/database"
-	"gomysql/types"
+	"gomysql/src/database"
+	"gomysql/src/types"
 	"log"
 	"net/http"
 	"strconv"
